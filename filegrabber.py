@@ -7,7 +7,9 @@ import urllib.parse
 
 class filegrabber:
     def __init__(self):
-        data = urllib.parse.urlencode(query={'username':configuration.username, 'password':configuration.password, 'rememberMe':'true'}).encode('utf-8')
+        data = urllib.parse.urlencode(query={'username':configuration.username,
+                                             'password':configuration.password,
+                                             'rememberMe':'true'}).encode('utf-8')
         header = {"Content-Type":"application/x-www-form-urlencoded;charset=utf-8"}
         req = urllib.request.Request(configuration.loginurl, data, header)
         with urllib.request.urlopen(req) as resp:
