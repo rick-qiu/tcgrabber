@@ -5,7 +5,7 @@ import urllib.request
 import urllib.response
 import urllib.parse
 
-class filegrabber:
+class FileGrabber:
     def __init__(self):
         data = urllib.parse.urlencode(query={'username':configuration.username,
                                              'password':configuration.password,
@@ -28,8 +28,8 @@ class filegrabber:
             return resp.readall().decode()
 
 if __name__ == "__main__":
-    grabber = filegrabber()
-    doc = grabber.grab('http://community.topcoder.com/stat?c=problem_statement&pm=12790&rd=15708')
+    grabber = FileGrabber()
+    doc = grabber.grab('http://community.topcoder.com/tc?module=ProblemArchive&sc=0&sd=asc&er=10000')
     import bs4
     soup = bs4.BeautifulSoup(doc)
     print(soup.prettify())
