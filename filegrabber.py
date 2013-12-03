@@ -25,9 +25,11 @@ class filegrabber:
         header = {'Cookie':self.cookie}
         req = urllib.request.Request(url, headers=header)
         with urllib.request.urlopen(req) as resp:
-            return resp.readall().decode('utf-8')
+            return resp.readall().decode()
 
 if __name__ == "__main__":
     grabber = filegrabber()
-    resp = grabber.grab('http://community.topcoder.com/stat?c=problem_statement&pm=12790&rd=15708')
-    print(resp)
+    doc = grabber.grab('http://community.topcoder.com/stat?c=problem_statement&pm=12790&rd=15708')
+    import bs4
+    soup = bs4.BeautifulSoup(doc)
+    print(soup.prettify())
