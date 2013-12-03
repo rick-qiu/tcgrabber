@@ -2,6 +2,4 @@ __author__ = 'Rick Qiu'
 
 username = 'Practicer'
 password = '10D4e45'
-http_proxy = ''
-https_proxy = ''
-loginurl = 'http://www.tocpder.com/present/login'
+proxies = {'http':'http://10.13.113.144:8080'}
